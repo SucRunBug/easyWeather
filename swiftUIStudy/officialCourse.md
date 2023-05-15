@@ -91,3 +91,30 @@ let vga = Resolution(width: 640, height: 480)
 现在我能理解项目中的初始化写法了，噢噢噢噢噢噢噢！
 
 而且swift的结构体中也是可以有初始化函数init的。
+
+
+
+你的软件也需要适配多个型号的手机，比如se系列、刘海系列、灵动岛这些不同的造型都需要进行测试。这也就是动态生产预览。
+
+可以通过为预览函数加上一个属性
+
+```swift
+LandmarkList()
+            .previewDevice(PreviewDevice(rawValue: "iPhone SE (3rd generation)"))
+```
+
+要选择具体的手机型号，是在顶栏选择。
+
+还可以通过列表依次传递指定手机信号，并在预览图中展示多个型号的手机
+
+```swift
+ForEach (["iPhone SE (3rd generation)", "iPhone 14 Pro"], id: \.self) {
+  deviceName in LandmarkList()
+  .previewDevice(PreviewDevice(rawValue: deviceName))
+  .previewDisplayName(deviceName)
+}
+```
+
+其中的id是swiftUI用来标识每个元素的。
+
+但是创建得越多，是非常吃内存的。
