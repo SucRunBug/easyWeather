@@ -38,7 +38,7 @@ struct BadgeBackground: View {
                         ),
                         control: CGPoint(
                             x: width * segment.control.x + xOffset,
-                            y: width * segment.control.y
+                            y: height * segment.control.y
                         )
                     )
                 }
@@ -52,7 +52,7 @@ struct BadgeBackground: View {
         .aspectRatio(1, contentMode: .fit)
     }
     static let gradientStart = Color(red: 239.0 / 255, green: 120.0 / 255, blue: 221.0 / 255)
-    static let gradientEnd = Color(red: 129.0 / 255, green: 172.0 / 255, blue: 120.0 / 255)
+    static let gradientEnd = Color(red: 239.0 / 255, green: 172.0 / 255, blue: 120.0 / 255)
 }
 
 struct BadgeBackground_Previews: PreviewProvider {
